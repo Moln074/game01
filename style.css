@@ -1,0 +1,135 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+body.correct {
+    background-color: #d4edda; /* สีเขียวจาง */
+    transition: background-color 0.5s ease; /* เพิ่มเอฟเฟกต์การเปลี่ยนสี */
+}
+
+body.wrong {
+    background-color: #f8d7da; /* สีแดงจาง */
+    transition: background-color 0.5s ease; /* เพิ่มเอฟเฟกต์การเปลี่ยนสี */
+}
+
+
+.quiz-container {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.btn-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: grey;
+}
+
+.correct {
+    background-color: #4CAF50; /* สีเขียวสำหรับคำตอบที่ถูก */
+    color: white;
+    animation: correctEffect 0.5s ease; /* เอฟเฟกต์เมื่อคำตอบถูก */
+}
+
+.wrong {
+    background-color: #f44336; /* สีแดงสำหรับคำตอบที่ผิด */
+    color: white;
+    animation: wrongEffect 0.5s ease; /* เอฟเฟกต์เมื่อคำตอบผิด */
+}
+
+/* เอฟเฟกต์การกระพริบเมื่อถูก */
+@keyframes correctEffect {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* เอฟเฟกต์การสั่นเมื่อผิด */
+@keyframes wrongEffect {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+
+#next-btn {
+    display: none;
+    margin-top: 20px;
+    margin-right: 0;
+}
+.question-image {
+    display: block; /* ทำให้รูปภาพเป็นบล็อก */
+    margin: 0 auto; /* จัดให้อยู่ตรงกลาง */
+    width: 80%; /* กำหนดความกว้างเป็น 80% ของ container */
+    max-width: 400px; /* กำหนดขนาดสูงสุด */
+    height: auto; /* ปรับความสูงอัตโนมัติตามอัตราส่วนของรูป */
+    border-radius: 10px; /* เพิ่มความโค้ง */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* เพิ่มเงา */
+    margin-bottom: 20px; /* เพิ่มระยะห่างระหว่างรูปภาพและคำถาม */
+}
+
+/* ซ่อนส่วน score-container โดยดีฟอลต์ */
+#score-container {
+    display: none;
+    text-align: center;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#score-container h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#score-container p {
+    font-size: 20px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+#restart-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#restart-btn:hover {
+    background-color: #45a049;
+}
